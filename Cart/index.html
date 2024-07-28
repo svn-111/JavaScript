@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h4>Adults Plain Cotton T-Shirt</h4>
+    <h4>Price: $7.99</h4>
+    <button 
+        style="background-color: yellow;"  
+        onclick="
+        cartQuantity+=1;
+        if(cartQuantity>10)
+        {
+            alert('Cart Full');
+            cartQuantity=10;
+            console.log(`Cart quantity = ${cartQuantity}`);
+        }
+        else
+        {
+            alert('Added');
+            console.log(`Cart quantity = ${cartQuantity}`);
+        }
+        ">
+        Add to Cart
+    </button>
+    <button 
+    style="background-color: orange;" 
+    onclick="
+    alert('Purchased') ;
+    console.log('Loading...');
+    ">
+        Buy now
+    </button>
+    <button 
+        style="background-color: rgb(3, 146, 79);"  
+        onclick="
+        cartQuantity+=2;
+        if(cartQuantity>10)
+        {
+            alert('Cart Full');
+            cartQuantity=10;
+            console.log(`Cart quantity = ${cartQuantity}`);
+        }
+        else
+        {
+            alert('2 Added');
+            console.log(`Cart quantity = ${cartQuantity}`);
+        }
+        ">
+        +2
+    </button>
+    <button 
+        style="background-color: rgb(122, 194, 228);"  
+        onclick="
+        cartQuantity+=3;
+        if(cartQuantity>10)
+        {
+            alert('Cart Full');
+            cartQuantity=10;
+            console.log(`Cart quantity = ${cartQuantity}`);
+        }
+        else
+        {
+            alert('3 Added');
+            console.log(`Cart quantity = ${cartQuantity}`);
+        }
+        ">
+        +3
+    </button>
+    <button 
+    style="background-color: red;" 
+    onclick="
+    alert('Cart Cleared');
+    cartQuantity = 0;
+    console.log(`Cart quantity = ${cartQuantity}`);
+    ">
+        Reset
+    </button>
+    <button 
+        style="background-color: rgb(122, 194, 228);"  
+        onclick="
+        cartQuantity-=1;
+        if(cartQuantity<0)
+        {
+            alert('Cart Empty');
+            cartQuantity=0;
+            console.log(`Cart quantity = ${cartQuantity}`);
+        }
+        else
+        {
+            alert('1 item Deleted');
+            console.log(`Cart quantity = ${cartQuantity}`);
+        }
+        ">
+        Delete
+    </button>
+    <button 
+        style="background-color: rgb(3, 146, 79);"  
+        onclick="
+        cartQuantity-=2;
+        if(cartQuantity<0)
+        {
+            alert('Cart Empty');
+            cartQuantity=0;
+            console.log(`Cart quantity = ${cartQuantity}`);
+        }
+        else
+        {
+            alert('2 Deleted');
+            console.log(`Cart quantity = ${cartQuantity}`);
+        }
+        ">
+        -2
+    </button>
+    <button 
+        style="background-color: rgb(122, 194, 228);"  
+        onclick="
+        cartQuantity-=3;
+        if(cartQuantity<0)
+        {
+            alert('Cart Empty');
+            cartQuantity=0;
+            console.log(`Cart quantity = ${cartQuantity}`);
+        }
+        else
+        {
+            alert('3 Deleted');
+            console.log(`Cart quantity = ${cartQuantity}`);
+        }
+        ">
+        -3
+    </button>
+    <script>
+        let cartQuantity = 0;
+    </script>
+
+    
+</body>
+</html>

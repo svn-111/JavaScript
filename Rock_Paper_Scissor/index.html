@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p> Rock Paper Scissors</p>
+    <button onclick="
+    {
+      const randomNum = Math.random();
+      let comMove='';
+      let userMove='rock';
+      console.log(randomNum);
+      if((randomNum>=0 && randomNum<1/3)){
+          comMove='rock'
+      }
+      else if(randomNum>=1/3 && randomNum<2/3){
+          comMove='paper';
+      }
+      else
+      {
+          comMove= 'scissors';
+      }
+      if(comMove===userMove)
+          alert('Tie');
+      else
+      {
+          if(comMove=='paper')
+          {
+              alert(`Computer = ${comMove}. User = ${userMove}. So, Winner is Computer`);
+          }
+          else
+          {
+              alert(`Computer = ${comMove}. User = ${userMove}. So, Winner is User`);
+          }
+      }
+    }
+    ">
+        Rock
+    </button>
+    <button onclick="
+    {
+      const randomNum = Math.random();
+      let comMove='';
+      let userMove='paper';
+      console.log(randomNum);
+      if((randomNum>=0 && randomNum<1/3)){
+          comMove='rock'
+      }
+      else if(randomNum>=1/3 && randomNum<2/3){
+          comMove='paper';
+      }
+      else
+      {
+          comMove= 'scissors';
+      }
+      if(comMove===userMove)
+          alert('Tie');
+      else
+      {
+          if(comMove=='rock')
+          {
+              alert(`Computer = ${comMove}. User = ${userMove}. So, Winner is User`);
+          }
+          else
+          {
+              alert(`Computer = ${comMove}. User = ${userMove}. So, Winner is Computer`);
+          }
+      }
+   }
+    ">
+        Paper
+    </button>
+    <button onclick="
+    {
+      const randomNum = Math.random();
+      let comMove='';
+      let userMove='scissors';
+      console.log(randomNum);
+      if((randomNum>=0 && randomNum<1/3)){
+          comMove='rock'
+      }
+      else if(randomNum>=1/3 && randomNum<2/3){
+          comMove='paper';
+      }
+      else
+      {
+          comMove= 'scissors';
+      }
+      if(comMove===userMove)
+          alert('Tie');
+      else
+      {
+          if(comMove=='rock')
+          {
+              alert(`Computer = ${comMove}. User = ${userMove}. So, Winner is Computer`);
+          }
+          else
+          {
+              alert(`Computer = ${comMove}. User = ${userMove}. So, Winner is User`);
+          }
+      }
+   }
+    ">
+        Scissors
+    </button>
+    <script>
+
+    </script>
+</body>
+</html>
