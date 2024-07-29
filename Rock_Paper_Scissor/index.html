@@ -9,105 +9,94 @@
     <p> Rock Paper Scissors</p>
     <button onclick="
     {
-      const randomNum = Math.random();
-      let comMove='';
-      let userMove='rock';
-      console.log(randomNum);
-      if((randomNum>=0 && randomNum<1/3)){
-          comMove='rock'
-      }
-      else if(randomNum>=1/3 && randomNum<2/3){
-          comMove='paper';
-      }
-      else
-      {
-          comMove= 'scissors';
-      }
-      if(comMove===userMove)
-          alert('Tie');
-      else
-      {
-          if(comMove=='paper')
-          {
-              alert(`Computer = ${comMove}. User = ${userMove}. So, Winner is Computer`);
-          }
-          else
-          {
-              alert(`Computer = ${comMove}. User = ${userMove}. So, Winner is User`);
-          }
-      }
+        playGame('rock');
     }
     ">
         Rock
     </button>
     <button onclick="
     {
-      const randomNum = Math.random();
-      let comMove='';
-      let userMove='paper';
-      console.log(randomNum);
-      if((randomNum>=0 && randomNum<1/3)){
-          comMove='rock'
-      }
-      else if(randomNum>=1/3 && randomNum<2/3){
-          comMove='paper';
-      }
-      else
-      {
-          comMove= 'scissors';
-      }
-      if(comMove===userMove)
-          alert('Tie');
-      else
-      {
-          if(comMove=='rock')
-          {
-              alert(`Computer = ${comMove}. User = ${userMove}. So, Winner is User`);
-          }
-          else
-          {
-              alert(`Computer = ${comMove}. User = ${userMove}. So, Winner is Computer`);
-          }
-      }
+        playGame('paper');
    }
     ">
         Paper
     </button>
     <button onclick="
     {
-      const randomNum = Math.random();
-      let comMove='';
-      let userMove='scissors';
-      console.log(randomNum);
-      if((randomNum>=0 && randomNum<1/3)){
-          comMove='rock'
-      }
-      else if(randomNum>=1/3 && randomNum<2/3){
-          comMove='paper';
-      }
-      else
-      {
-          comMove= 'scissors';
-      }
-      if(comMove===userMove)
-          alert('Tie');
-      else
-      {
-          if(comMove=='rock')
-          {
-              alert(`Computer = ${comMove}. User = ${userMove}. So, Winner is Computer`);
-          }
-          else
-          {
-              alert(`Computer = ${comMove}. User = ${userMove}. So, Winner is User`);
-          }
-      }
+      playGame('scissors');
    }
     ">
         Scissors
     </button>
+    <button onclick="
+        score.winCnt=0;
+        score.lossCnt=0;
+        score.tieCnt=0;
+    ">
+        Reset
+    </button>
     <script>
-
+        let score ={
+            winCnt : 0,
+            lossCnt : 0,
+            tieCnt : 0
+        };
+        function pickComputerMove(){
+            const randomNum = Math.random();
+            let comMove='';
+            console.log(randomNum);
+            if((randomNum>=0 && randomNum<1/3)){
+                comMove='rock'
+            }
+            else if(randomNum>=1/3 && randomNum<2/3){
+                comMove='paper';
+            }
+            else
+            {
+                comMove= 'scissors';
+            }
+            return comMove;
+        }
+        function playGame(userMove){
+            let result = '';
+            let comMove = pickComputerMove();
+            if(comMove==userMove)
+                result='Tie';
+            else
+            {
+                if(userMove=='rock')
+                {
+                    if(comMove=='paper')
+                        result = 'COMPUTER WON';
+                    else
+                        result = 'YOU WON';
+                }
+                else if(userMove='paper')
+                {
+                    if(comMove=='rock')
+                        result = 'YOU WON';
+                    else
+                        result = 'COMPUTER WON';
+                }
+                else
+                {
+                    if(comMove=='paper')
+                        result = 'YOU WON';
+                    else
+                        result = 'COMPUTER WON';
+                }
+            }
+            //var upper = userMove.toUpperCase();
+            if(result == 'COMPUTER WON')
+                score.lossCnt+=1;
+            else if(result == 'YOU WON')
+                score.winCnt+=1;
+            else
+                score.tieCnt+=1;
+            alert(`YOU CHOOSE ${userMove.toUpperCase()}. COMPUTER CHOOSE ${comMove.toUpperCase()}. 
+RESULT IS --- ${result}.....
+SCORE: WIN = ${score.winCnt}. LOSS = ${score.lossCnt}. TIE = ${score.tieCnt}`);
+        }
     </script>
 </body>
 </html>
