@@ -32,15 +32,21 @@
         score.winCnt=0;
         score.lossCnt=0;
         score.tieCnt=0;
+        localStorage.removeItem('score');
     ">
         Reset
     </button>
     <script>
-        let score ={
-            winCnt : 0,
-            lossCnt : 0,
-            tieCnt : 0
-        };
+        score = JSON.parse(localStorage.getItem('score'));
+        //console.log();
+        if(score==null)
+        {
+            score = {
+                lossCnt : 0,
+                winCnt : 0,
+                tieCnt :0
+            };
+        }
         function pickComputerMove(){
             const randomNum = Math.random();
             let comMove='';
@@ -58,6 +64,7 @@
             return comMove;
         }
         function playGame(userMove){
+
             let result = '';
             let comMove = pickComputerMove();
             if(comMove==userMove)
@@ -71,7 +78,7 @@
                     else
                         result = 'YOU WON';
                 }
-                else if(userMove='paper')
+                else if(userMove=='paper')
                 {
                     if(comMove=='rock')
                         result = 'YOU WON';
@@ -86,6 +93,7 @@
                         result = 'COMPUTER WON';
                 }
             }
+            
             //var upper = userMove.toUpperCase();
             if(result == 'COMPUTER WON')
                 score.lossCnt+=1;
@@ -93,6 +101,8 @@
                 score.winCnt+=1;
             else
                 score.tieCnt+=1;
+
+            localStorage.setItem('score', JSON.stringify(score));
             alert(`YOU CHOOSE ${userMove.toUpperCase()}. COMPUTER CHOOSE ${comMove.toUpperCase()}. 
 RESULT IS --- ${result}.....
 SCORE: WIN = ${score.winCnt}. LOSS = ${score.lossCnt}. TIE = ${score.tieCnt}`);
