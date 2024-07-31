@@ -5,6 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DomProject</title>
 </head>
+<style>
+    body{
+        font-family: Arial;
+    }
+    .js_sub_btn{
+        font-weight: bold;
+        padding: 10px 15px;
+        border: none;
+        background-color: black;
+        color: white;
+        border-radius: 40px;
+        cursor: pointer;
+    }
+    .is-subscribed{
+        background-color: rgb(228, 215, 215);
+        color: black;
+    }
+</style>
 <body>
     <p>YouTube Subscribe Button</p>
     <button 
@@ -41,11 +59,17 @@
         }
         function pressButton()
         {
-            var btnElement = document.querySelector('.js_sub_btn');
+            const btnElement = document.querySelector('.js_sub_btn');
             if(btnElement.innerText==='Subscribe')
+            {
                 btnElement.innerHTML='Subscribed';
+                btnElement.classList.add('is-subscribed')
+            }                
             else
+            {
                 btnElement.innerHTML = 'Subscribe';
+                btnElement.classList.remove('is-subscribed');
+            }               
         }
         function calculateCost()
         {
