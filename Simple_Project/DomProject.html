@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DomProject</title>
+</head>
+<body>
+    <p>YouTube Subscribe Button</p>
+    <button 
+    class="js_sub_btn" 
+    onclick="
+    pressButton();
+    ">Subscribe</button> 
+    <br>
+    <p>Rock Paper Scissors</p>
+    <br>
+    <a href="index.html">
+        Click Here
+    </a>
+    <p>Amazon Shipping Calculator</p>
+    <p>Orders Under $40 = +$10 Shipping
+    </p>
+    <p>Orders Over $40 = Free Shipping
+    </p>
+
+    <input placeholder="Cost of Orders" onkeydown="
+    handleCostKeyInp(event);
+    "class="inputBox">
+    <button class="js-cal-btn" onclick="
+    calculateCost();
+    ">Calculate</button>
+    <br>
+
+    <p class="printTotal"></p>
+
+    <script>
+        function handleCostKeyInp(event){
+            if(event.key == 'Enter')
+                calculateCost();
+        }
+        function pressButton()
+        {
+            var btnElement = document.querySelector('.js_sub_btn');
+            if(btnElement.innerText==='Subscribe')
+                btnElement.innerHTML='Subscribed';
+            else
+                btnElement.innerHTML = 'Subscribe';
+        }
+        function calculateCost()
+        {
+            var inpboxElement = document.querySelector('.inputBox').value;
+            //console.log(inpboxElement);
+            if(inpboxElement=='')
+                document.querySelector('.printTotal').innerHTML='Enter Cost!!!';
+            else
+                {
+                    if(inpboxElement>=40)
+                        document.querySelector('.printTotal').innerHTML =
+                        `Total Cost = ${inpboxElement}`;
+                    else
+                    {
+                        inpboxElement=inpboxElement*10;
+                        document.querySelector('.printTotal').innerHTML =
+                        `Total Cost = ${Number(inpboxElement/10)+10}`;
+                    }
+                        
+                }
+                document.querySelector('.inputBox').value='';
+        }
+        
+        
+    </script>
+    
+</body>
+</html>
