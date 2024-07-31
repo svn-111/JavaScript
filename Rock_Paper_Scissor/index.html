@@ -28,14 +28,26 @@
     ">
         Scissors
     </button>
+    <br>
+    <p class="select-winner"></p>
+    <p class="js-score"></p>
+    
     <button onclick="
         score.winCnt=0;
         score.lossCnt=0;
         score.tieCnt=0;
         localStorage.removeItem('score');
+        document.querySelector('.select-winner').innerHTML = '';
+        document.querySelector('.js-score').innerHTML = `
+SCORE: WIN = ${score.winCnt}. LOSS = ${score.lossCnt}. TIE = ${score.tieCnt}`;
     ">
         Reset
     </button>
+    <button 
+    class="js-back"
+    onclick="
+    prevPage();
+    ">Back</button>
     <script>
         score = JSON.parse(localStorage.getItem('score'));
         //console.log();
@@ -45,8 +57,17 @@
                 lossCnt : 0,
                 winCnt : 0,
                 tieCnt :0
-            };
+            }
         }
+       /* document.querySelector('.js-score').innerHTML = `
+SCORE: WIN = ${score.winCnt}. LOSS = ${score.lossCnt}. TIE = ${score.tieCnt}`*/
+        function prevPage()
+        {
+            //document.getElementById('.js-back').addEventListener('click', function() {
+            // Redirect to newpage.html
+            window.location.href = 'DomProject.html';
+        }
+        
         function pickComputerMove(){
             const randomNum = Math.random();
             let comMove='';
@@ -101,12 +122,17 @@
                 score.winCnt+=1;
             else
                 score.tieCnt+=1;
-
+            
             localStorage.setItem('score', JSON.stringify(score));
-            alert(`YOU CHOOSE ${userMove.toUpperCase()}. COMPUTER CHOOSE ${comMove.toUpperCase()}. 
-RESULT IS --- ${result}.....
-SCORE: WIN = ${score.winCnt}. LOSS = ${score.lossCnt}. TIE = ${score.tieCnt}`);
-        }
+            document.querySelector('.select-winner').innerHTML=`
+You Choose : ${userMove.toUpperCase()}<br>
+Computer Choose : ${comMove.toUpperCase()}<br>
+<h2>Result : ${result.toUpperCase()}<\h2>`;
+
+            document.querySelector('.js-score').innerHTML = `
+SCORE: WIN = ${score.winCnt}. LOSS = ${score.lossCnt}. TIE = ${score.tieCnt}`;
+
+}
     </script>
 </body>
 </html>
