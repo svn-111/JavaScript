@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+</head>
+<body>
+    <p>Good Morning!!!</p>
+    <button
+    onclick="
+    changeIt();
+    ">hello</button>
+
+    <button class="js-button">Second</button>
+
+
+    <script>
+        function changeIt()
+        {
+            document.querySelector('p').innerHTML = 'Good Job!';
+        }
+        //document.title = 'sdhv';
+
+    </script>
+</body>
+</html>

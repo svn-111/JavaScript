@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DomProject</title>
+</head>
+<style>
+    body{
+        font-family: Arial;
+    }
+    .js_sub_btn{
+        font-weight: bold;
+        padding: 10px 15px;
+        border: none;
+        background-color: black;
+        color: white;
+        border-radius: 40px;
+        cursor: pointer;
+    }
+    .is-subscribed{
+        background-color: rgb(228, 215, 215);
+        color: black;
+    }
+    .inputBox{
+        padding: 10px;
+        font-family: Arial;
+    }
+    .js-cal-btn{
+        padding: 10px;
+        font-family: Arial;
+        background-color: darkgreen;
+    }
+    .no_input{
+        color: red;
+        font-weight: bold;
+    }
+    
+</style>
+<body>
+    <p>YouTube Subscribe Button</p>
+    <button 
+    class="js_sub_btn" 
+    onclick="
+    pressButton();
+    ">Subscribe</button> 
+    <br>
+    <p>Rock Paper Scissors</p>
+    <br>
+    <a href="index.html">
+        Click Here
+    </a>
+    <p>Amazon Shipping Calculator</p>
+    <p>Orders Under $40 = +$10 Shipping
+    </p>
+    <p>Orders Over $40 = Free Shipping
+    </p>
+
+    <input placeholder="Cost of Orders" onkeydown="
+    handleCostKeyInp(event);
+    "class="inputBox">
+    <button class="js-cal-btn" onclick="
+    calculateCost();
+    ">Calculate</button>
+    <br>
+
+    <p class="printTotal"></p>
+
+    <script>
+        function handleCostKeyInp(event){
+            if(event.key == 'Enter')
+                calculateCost();
+        }
+        function pressButton()
+        {
+            const btnElement = document.querySelector('.js_sub_btn');
+            if(btnElement.innerText==='Subscribe')
+            {
+                btnElement.innerHTML='Subscribed';
+                btnElement.classList.add('is-subscribed')
+            }                
+            else
+            {
+                btnElement.innerHTML = 'Subscribe';
+                btnElement.classList.remove('is-subscribed');
+            }               
+        }
+        function calculateCost()
+        {
+            let inpboxElement = document.querySelector('.inputBox').value;
+            var status = document.querySelector('.printTotal');
+            //console.log(inpboxElement);
+            if(inpboxElement==='')
+            {
+                
+                document.querySelector('.printTotal').innerHTML='Enter Cost!!!';
+                status.classList.add('no_input');
+            }
+                
+            else
+                {
+                    status.classList.remove('no_input');
+                    if(inpboxElement>=40)
+                        document.querySelector('.printTotal').innerHTML =
+                        `Total Cost = ${inpboxElement}`;
+                    else
+                    {
+                        inpboxElement=inpboxElement*10;
+                        document.querySelector('.printTotal').innerHTML =
+                        `Total Cost = ${Number(inpboxElement/10)+10}`;
+                    }
+                        
+                }
+                document.querySelector('.inputBox').value='';
+        }
+        
+        
+    </script>
+    
+</body>
+</html>

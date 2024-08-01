@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    const product2 = {
+        name : 'shirt',
+        'delivery-time' : '1 day',
+        rating :{
+            stars : 4.5,
+            count : 87
+        },
+        fun : function  myFunc(){
+            console.log('Function inside an object');
+        }
+    };
+    console.log(product2);
+    console.log(product2.rating.stars);
+    console.log(product2.fun);
+    console.log(product2['delivery-time']);
+    console.log(product2['name']);
+
+    const jsonString = JSON.stringify(product2);
+    console.log(jsonString);
+    console.log(JSON.parse(jsonString));
+
+    const obj1 = {
+        name : 'Shovon'
+    }
+    const obj2 = obj1;
+    console.log(obj2.name);
+</script>
+</html>
