@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perosnal Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <nav>
+                <img src="images/logo.png" class="logo">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Portfolio</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="header-text">
+                <p>Full Stack Developer</p>
+                <h1>Hi, I'm <span>Shovon</span><br>Chy from BD</h1>
+            </div>
+        </div>
+    </div>
+    <!-- ----About---- -->
+     <div class="about">
+        <div class="container">
+            <div class="row">
+                <div class="about-col-1">
+                    <img src="images/user.png" alt="">
+                </div>
+                <div class="about-col-2">
+                    <h1 class="sub-title">About Me</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio consequuntur molestias harum nostrum dolorum non quos error. Expedita, rerum asperiores consequuntur optio maxime recusandae quas dolores culpa vitae placeat nulla!</p>
+
+                    <div class="tab-titles">
+                        <p class="tab-link active-link" onclick="openTab('skills')">Skills</p>
+                        <p class="tab-link " onclick="openTab('experiences')">Experience</p>
+                        <p class="tab-link" onclick="openTab('education')">Education</p>
+                    </div>
+                    <div class="tab-contents active-tab" id="skills">
+                        <ul>
+                            <li><span>UI/UX</span><br>Designing Web/App interfaces</li>
+                            <li><span>Web Development</span><br>Web App Development</li>
+                            <li><span>App Development</span><br> Building Android/ios Apps</li>
+                        </ul>
+                    </div>
+                    <div class="tab-contents" id="experiences">
+                        <ul>
+                            <li><span>Sonali Intellect Limited</span><br>July,2024 - Present</li>
+                        </ul>
+                    </div>
+                    <div class="tab-contents" id="education">
+                        <ul>
+                            <li><span>UI/UX</span><br>Designing Web/App interfaces</li>
+                            <li><span>Web Development</span><br>Web App Development</li>
+                            <li><span>App Development</span><br> Building Android/ios Apps</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+     </div>
+     <script>
+        var tabLinks = document.getElementsByClassName("tab-link");
+        var tabContents = document.getElementsByClassName("tab-contents");
+
+        function openTab(tabName)
+        {
+                for(tablink of tabLinks)
+                {
+                    // console.log("Hello");
+                    //console.log(tablink);
+                    tablink.classList.remove("active-link");
+                }
+                
+                for(tabcontent of tabContents)
+                {
+                    // console.log("Hello2");
+                    tabcontent.classList.remove("active-tab");
+                }
+            //console.log(event.currentTarget);               
+            event.currentTarget.classList.add('active-link');
+            document.getElementById(tabName).classList.add("active-tab");
+        }
+     </script>
+</body>
+</html>

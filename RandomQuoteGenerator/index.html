@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+        body{
+            background-color: #f43543;
+        }
+        .wrapper{
+            background-color: aliceblue;
+            margin-bottom: 200px;
+            margin-top: 200px;
+            margin-left: 200px;
+            margin-right: 200px;
+            padding-top: 100px;
+            padding-bottom: 100px;
+        }
+        .container{
+            margin-left: 110px;
+        }
+        .btn{
+            margin-top: 30px;
+            margin-left: 100px;
+            padding-left: 10px;
+            padding-top: 5px;
+            padding-right: 10px;
+            padding-bottom: 5px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="container">
+            <p class="quote" id="quote">
+                Hello
+            </p>
+            <br>
+            <p id="author"></p>
+        </div>
+        <button class="btn" id="btn"> Get quote</button>  
+    </div>
+
+    <script>
+        const btn = document.getElementById("btn");
+
+        const text = document.getElementById("quote");
+
+        const author = document.getElementById("author");
+
+        const url = "http://api.quotable.io/random";
+
+        let getQuote = () => {
+            fetch(url)
+            .then((data) => data.json()).then((item)=>{
+                text.innerHTML = item.content;
+                author.innerHTML=item.author;
+            });
+        }
+        btn.addEventListener("click",getQuote);
+
+    </script>
+</body>
+</html>
