@@ -391,3 +391,13 @@ function greet() {
 const person = { name: 'Alice' };
 greet.call(person); // Output: Hello, Alice
 ```
+
+| Context                      | `this` Refers To                      |
+|------------------------------|---------------------------------------|
+| In an object method          | The object itself                     |
+| Alone                        | The global object (window in browsers or global in Node.js) |
+| In a function (non-strict mode) | The global object                    |
+| In a function (strict mode)  | `undefined`                           |
+| In an event                   | The element that received the event   |
+| Using `call()`, `apply()`, or `bind()` | Any object explicitly set by these methods |
+
