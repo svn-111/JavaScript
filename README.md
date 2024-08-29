@@ -423,25 +423,24 @@ myClosure(); // Output: 12
 myClosure(); // Output: 13
 
 ```
-###Explanation of How Closure Behaves Like This:
+### Explanation of How Closure Behaves Like This:
 
 1. **Function and Scope Creation:**
-<br>
 -When outerFunction is called, it creates a local scope where the variable number is set to 10.<br>
 -Inside outerFunction, another function, innerFunction, is defined. This inner function has access to everything in its own scope and the scope of outerFunction.
 
-2. **Returning a Function:**<br>
+2. **Returning a Function:**
 -outerFunction returns innerFunction without executing it immediately. Instead, it returns the function definition along with the scope where it was created. This returned function is stored in the variable myClosure.
 
-3. **Closure is Formed:**<br>
+3. **Closure is Formed:** 
 -When outerFunction returns innerFunction, the scope of outerFunction doesn't disappear. Instead, it stays "alive" because innerFunction still has references to the variables within that scope (in this case, number).<br>
 -This combination of the function and its scope is what we call a "closure."
 
-4. **Persistent State:**<br>
+4. **Persistent State:**
 -When you call myClosure() for the first time, it executes innerFunction, which increments number from 10 to 11 and then logs it.<br>
 -Even though outerFunction has finished running, the number variable is still accessible and modifiable by innerFunction because of the closure.<br>
 -The closure ensures that number retains its updated value between function calls. So, the next time you call myClosure(), it starts with number at 11, increments it to 12, and logs it.
 
-5. **Why This Works:**<br>
+5. **Why This Works:**
 -The closure keeps a reference to the number variable. Instead of being reset or discarded after outerFunction completes, number continues to exist within the closure. Each call to myClosure() accesses and modifies this same number variable.<br>
 -This allows the function to have a "persistent state," meaning it remembers the changes made to its environment from previous executions.<br>
